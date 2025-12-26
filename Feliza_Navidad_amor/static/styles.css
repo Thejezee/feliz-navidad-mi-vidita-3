@@ -1,0 +1,183 @@
+body {
+	margin: 0;
+	padding: 0;
+	min-height: 100vh;
+	background: linear-gradient(to bottom, #87cefa, #e0f7fa);
+	font-family: 'Simonetta', cursive;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.card {
+	width: 90%;
+	max-width: 1100px;
+	background: rgba(255, 255, 255, 0.95);
+	border-radius: 50px;
+	box-shadow: 0 20px 60px rgba(255, 182, 193, 0.5);
+	padding: 40px;
+	border: 12px double #ff69b4;
+	text-align: center;
+}
+
+.titulo {
+	font-weight: 900;
+	font-size: clamp(3.5rem, 8vw, 6rem);
+	color: #c62828;
+	margin: 0 0 40px 0;
+	cursor: pointer;
+}
+
+.mensaje-secreto {
+	font-size: clamp(1.8rem, 5vw, 3rem);
+	color: #d32f2f;
+	padding: 40px;
+	background: rgba(255, 255, 255, 0.9);
+	border-radius: 40px;
+	margin: 40px 0;
+	animation: aparecer 1.5s;
+}
+
+.oculto {
+	display: none;
+}
+
+@keyframes aparecer {
+	from {
+		opacity: 0;
+		transform: scale(0.9);
+	}
+
+	to {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+/* Fila de 4 imágenes/GIFs equilibrada */
+.fila-gifs {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	gap: 30px;
+	margin: 40px 0;
+}
+
+.gif-celda {
+	background: rgba(255, 255, 255, 0.9);
+	border-radius: 35px;
+	padding: 20px;
+	box-shadow: 0 10px 30px rgba(173, 216, 230, 0.5);
+	transition: transform 0.3s;
+}
+
+.gif-celda:hover {
+	transform: scale(1.1);
+}
+
+/* Imágenes y GIFs perfectos */
+.imagen-contenido {
+	max-width: 100%;
+	max-height: 300px;
+	object-fit: contain;
+	border-radius: 25px;
+}
+
+/* Efectos */
+#snow-canvas,
+.hearts,
+.lights {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	pointer-events: none;
+	z-index: 9997;
+}
+
+.heart {
+	position: absolute;
+	font-size: 2rem;
+	color: rgba(255, 105, 180, 0.7);
+	animation: float 15s infinite linear;
+	opacity: 0;
+}
+
+@keyframes float {
+	0% {
+		transform: translateY(100vh) rotate(0deg);
+		opacity: 0;
+	}
+
+	10% {
+		opacity: 0.8;
+	}
+
+	90% {
+		opacity: 0.8;
+	}
+
+	100% {
+		transform: translateY(-100px) rotate(360deg);
+		opacity: 0;
+	}
+}
+
+.light {
+	position: absolute;
+	width: 12px;
+	height: 12px;
+	border-radius: 50%;
+	animation: parpadear 1.5s infinite alternate;
+}
+
+@keyframes parpadear {
+	from {
+		opacity: 0.5;
+	}
+
+	to {
+		opacity: 1;
+		box-shadow: 0 0 30px currentColor;
+	}
+}
+/* Fila de GIFs – más equilibrada y con bordes pegados */
+.fila-gifs {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	gap: 30px;
+	margin: 40px 0;
+	align-items: center;
+}
+
+/* Alineación específica para bordes */
+.gif-celda.izquierda {
+	justify-self: start;
+	/* Pegado a la izquierda */
+	margin-left: 0;
+}
+
+.gif-celda.centro {
+	justify-self: center;
+}
+
+.gif-celda.derecha {
+	justify-self: end;
+	/* Pegado a la derecha */
+	margin-right: 0;
+}
+
+/* Responsivo en celular: apilados verticalmente */
+@media (max-width: 768px) {
+	.fila-gifs {
+		grid-template-columns: 1fr;
+		gap: 40px;
+	}
+
+	.gif-celda.izquierda,
+	.gif-celda.centro,
+	.gif-celda.derecha {
+		justify-self: center;
+		margin: 0;
+	}
+}

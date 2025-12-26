@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Feliz Navidad, Mi Vidita ❤️</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Simonetta:wght@400;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles.css') }}"
+    />
+  </head>
+  <body>
+    <div class="card">
+      <!-- Título interactivo (clic para mensaje secreto) -->
+      <h1 class="titulo" id="titulo">Feliz Navidad mi vidita&lt;3</h1>
+
+      <!-- Mensaje secreto romántico -->
+      <div id="mensaje-secreto" class="mensaje-secreto oculto">
+        <p>
+          Mi vidita, eres el regalo más hermoso que la vida me dio.<br />
+          Esta Navidad y siempre, te amo con todo mi corazón.<br />
+          Gracias por hacer mis días mágicos y llenos de amor.<br /><br />
+          ¡Te amo con todo mi vida!
+        </p>
+      </div>
+
+              <!-- Fila de 4 imágenes/GIFs con mejor espacio -->
+        <div class="fila-gifs">
+            <!-- Izquierda al borde -->
+            <div class="gif-celda izquierda">
+                <img src="https://media.tenor.com/7g2q6O0b2vIAAAAC/cinnamoroll-sanrio.gif" class="imagen-contenido" alt="Cinnamoroll con regalo">
+            </div>
+            
+            <!-- Centro -->
+            <div class="gif-celda centro">
+                <img src="https://i.pinimg.com/originals/bb/cd/4a/bbcd4a8498bdfde55bfd6bf0fdbff66d.gif" class="imagen-contenido" alt="Cinnamoroll en nieve">
+            </div>
+            
+            <div class="gif-celda centro">
+                <img src="https://media.tenor.com/IFvGFBYfZhAAAAAj/sanrio-christmas.gif" class="imagen-contenido" alt="Cinnamoroll Merry Christmas">
+            </div>
+            
+            <!-- Derecha al borde -->
+            <div class="gif-celda derecha">
+                <img src="https://i.pinimg.com/736x/46/18/28/461828be5a42137c1ce1454b8183d050.jpg" class="imagen-contenido" alt="Nuestra foto ❤️">
+            </div>
+        </div>
+
+
+    <!-- Efectos mágicos -->
+    <canvas id="snow-canvas"></canvas>
+    <div class="hearts"></div>
+    <div class="lights"></div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+  </body>
+</html>
